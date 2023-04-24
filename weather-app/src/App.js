@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import UilReact from '@iconscout/react-unicons/icons/uil-react'
+import TopButtons from './components/TopButtons'
 
 function App() {
 
@@ -15,7 +17,8 @@ function App() {
   }
   
   return (
-    <div className='container'>
+    <div className='mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl'>
+      <TopButtons/>
       <input 
       className='input' 
       placeholder='Enter city ...' 
@@ -25,7 +28,7 @@ function App() {
       />
     {typeof weatherData.main === 'undefined' ? (
       <div>
-        <p>Welcome to Weather App! Please enter a city to get the weather</p>
+        <p className='text-2xl font-bold text-pink-500'>Welcome to Weather App! Please enter a city to get the weather</p>
       </div>
     ) : (
       <div className='weather-data'>
