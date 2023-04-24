@@ -5,7 +5,6 @@ import Inputs from './components/Inputs'
 import TimeAndLocation from './components/TimeAndLocation'
 import TemperatureAndDetails from './components/TemperatureAndDetails'
 import Forecast from './components/Forecast'
-import getWeatherData from './services/weatherService'
 
 
 function App() {
