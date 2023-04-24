@@ -25,7 +25,7 @@ function App() {
       />
     {typeof weatherData.main === 'undefined' ? (
       <div>
-        <p>Welcome to Weather App! Please enter a city to get the weather</p>
+        <p className='text-2xl font-bold text-red-500'>Welcome to Weather App! Please enter a city to get the weather</p>
       </div>
     ) : (
       <div className='weather-data'>
