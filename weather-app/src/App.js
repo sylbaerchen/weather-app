@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import UilReact from '@iconscout/react-unicons/icons/uil-react'
 
 function App() {
 
@@ -15,7 +16,8 @@ function App() {
   }
   
   return (
-    <div className='container'>
+    <div >
+      <UilReact/>
       <input 
       className='input' 
       placeholder='Enter city ...' 
@@ -25,7 +27,7 @@ function App() {
       />
     {typeof weatherData.main === 'undefined' ? (
       <div>
-        <p className='text-2xl font-bold text-red-500'>Welcome to Weather App! Please enter a city to get the weather</p>
+        <p className='text-2xl font-bold text-pink-500'>Welcome to Weather App! Please enter a city to get the weather</p>
       </div>
     ) : (
       <div className='weather-data'>
