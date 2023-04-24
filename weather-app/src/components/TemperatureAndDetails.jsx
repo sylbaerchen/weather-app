@@ -9,27 +9,27 @@ import {
     UilSunset
 } from '@iconscout/react-unicons/';
 
-function TemperatureAndDetails() {
+function TemperatureAndDetails({name, temperature, feels, humidity, wind, max, min}) {
   return (
     <div>
-        <div className='flex items-center justify-center py-6 text-xl text-cyan-300'>
-            <p>whatever or whatsoever</p> 
+        <div className='flex items-center justify-center text-7xl py-6 text-cyan-300'>
+            <h1>{name}</h1> 
         </div>
         <div className='flex flex-row items-center justify-between text-white py-3'>
           <img src='' alt='sun' className='w-20'/>
-          <p className='text-5xl'>34°</p>
+          <p className='text-5xl'>{temperature}°</p>
           <div className='flex flex-col space-y-2 items-start'>
             <div className='flex font-light text-sm items-center justify-center'>
                 <UilTemperature size={18} className='mr-1'/>
-                Feels like: <span className='font-medium ml-1'>32°</span>
+                Feels like: <span className='font-medium ml-1'>{feels}°</span>
             </div>
             <div className='flex font-light text-sm items-center justify-center'>
                 <UilTear size={18} className='mr-1'/>
-                Humidity <span className='font-medium ml-1'>65%</span>
+                Humidity <span className='font-medium ml-1'>{humidity}%</span>
             </div>
             <div className='flex font-light text-sm items-center justify-center'>
                 <UilWind size={18} className='mr-1'/>
-                Wind: <span className='font-medium ml-1'>11km/h</span>
+                Wind: <span className='font-medium ml-1'>{wind}km/h</span>
             </div>
           </div>
         </div>
@@ -46,12 +46,12 @@ function TemperatureAndDetails() {
             <p className='font-light'>|</p>
             <UilSun/>
             <p className='font-light'>
-                High: <span className='font-medium ml-1'>45°</span>
+                Max: <span className='font-medium ml-1'>{max}°</span>
             </p>
             <p className='font-light'>|</p>      
             <UilSun/>
             <p className='font-light'>
-                Low: <span className='font-medium ml-1'>40°</span>
+                Min: <span className='font-medium ml-1'>{min}°</span>
             </p>
         </div>
     </div>
