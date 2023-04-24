@@ -4,6 +4,7 @@ import TopButtons from './components/TopButtons'
 import Inputs from './components/Inputs'
 import TimeAndLocation from './components/TimeAndLocation'
 import TemperatureAndDetails from './components/TemperatureAndDetails'
+import Forecast from './components/Forecast'
 
 function App() {
 
@@ -25,6 +26,8 @@ function App() {
       <Inputs />
       <TimeAndLocation/>
       <TemperatureAndDetails/>
+      <Forecast/>
+      <Forecast/>
       <input 
       className='input' 
       placeholder='Enter city ...' 
