@@ -1,7 +1,5 @@
 import React from 'react'
 import {
-    UilArrowUp,
-    UilArrowDown,
     UilTemperature,
     UilTear,
     UilWind,
@@ -9,14 +7,19 @@ import {
     UilSunset
 } from '@iconscout/react-unicons/';
 
-function TemperatureAndDetails({name, temperature, feels, humidity, wind, max, min}) {
+function TemperatureAndDetails({name, temperature, feels, humidity, wind, max, min, sky, wemoji}) {
+
+    
   return (
     <div>
+        <div className='flex items-center justify-start text-3xl py-6 text-cyan-100'>
+            <h5>{name}</h5> 
+        </div>
         <div className='flex items-center justify-center text-7xl py-6 text-cyan-300'>
-            <h1>{name}</h1> 
+            <h1>{sky}</h1> 
         </div>
         <div className='flex flex-row items-center justify-between text-white py-3'>
-          <img src='' alt='sun' className='w-20'/>
+          <img src={wemoji} alt='sun' className='w-20'/>
           <p className='text-5xl'>{temperature}°</p>
           <div className='flex flex-col space-y-2 items-start'>
             <div className='flex font-light text-sm items-center justify-center'>
