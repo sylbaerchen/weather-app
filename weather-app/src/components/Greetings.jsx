@@ -16,7 +16,12 @@ function Greetings() {
     }
   }, []);
 
-  return <h2 className='text-white text-lg font-medium'>Hey there, {greeting} and welcome!</h2>;
+  return (  
+    <div>
+      <h3 className='text-white text-lg font-medium'>Hey there, </h3>
+      <h2 className='text-white text-lg font-medium'><span className='text-teal-200 text-lg font-medium'>{greeting}</span> and welcome!</h2>
+    </div>
+  );
 }
 
 export default Greetings;
