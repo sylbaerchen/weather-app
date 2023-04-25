@@ -2,8 +2,8 @@ import React, {useState} from 'react'
 import Inputs from './components/Inputs'
 import TimeAndLocation from './components/TimeAndLocation'
 import TemperatureAndDetails from './components/TemperatureAndDetails'
-import Forecast from './components/Forecast'
 import Greetings from './components/Greetings'
+import { UilBolt } from '@iconscout/react-unicons'
 
 function App() {
 const apiKey = process.env.REACT_APP_APIKEY
@@ -64,8 +64,9 @@ if(weatherData.weather[0].main === 'Clear') {
        min={Math.round(weatherData.main.temp_min)}/>
      </div>) }
      {weatherData.cod === '404' && 
-     <div className='bg-gradient-to-br from-red-500 to-pink-700'>
-        <p>Sorry, city not found :( Please try again!</p>
+     <div className='flex bg-red-500 border-2 py-6 px-3 my-8'>
+        <UilBolt size={32} className='mr-1 text-white'/>
+        <p className='text-white'>Sorry, city not found ... please try again!</p>    
      </div>
       }
    
