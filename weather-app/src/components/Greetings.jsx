@@ -19,7 +19,8 @@ function Greetings() {
   return (  
     <div>
       <h3 className='text-white text-lg font-medium'>Hey there, </h3>
-      <h2 className='text-white text-lg font-medium'><span className='text-teal-200 text-lg font-medium'>{greeting}</span> and welcome!</h2>
+      <h2 className='text-white text-lg font-medium'><span className='text-teal-200 text-lg font-medium'>{greeting}</span> and welcome</h2>
+      <h2 className='text-white text-lg font-medium'> to the Weather App!</h2>
     </div>
   );
 }
