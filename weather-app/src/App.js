@@ -40,8 +40,25 @@ if(weatherData.weather[0].main === 'Clear') {
   emoji = "/cloud-sun.png"
 }}
 
+let bgStyles = 'flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-br from-cyan-700 to-blue-700 min-h-screen shadow-xl'
+if(typeof weatherData.main != 'undefined') {
+if(weatherData.weather[0].main === 'Clear') {
+  bgStyles.replace('from-cyan-700 to-blue-700', 'from-blue-900 to-blue-400'); 
+} else if(weatherData.weather[0].main === 'Clouds') {
+  bgStyles = 'flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-b from-cyan-700 to-cyan-900 min-h-screen shadow-xl'    
+} else if(weatherData.weather[0].main === 'Thunderstorm') {
+  bgStyles = 'flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-b from-fuchsia-800 to-fuchsia-950 min-h-screen shadow-xl'    
+} else if(weatherData.weather[0].main === 'Rain' || 'Drizzle' ) {
+  bgStyles = 'flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-b from-teal-600 to-teal-900 min-h-screen shadow-xl'    
+} else if(weatherData.weather[0].main === 'Snow') {
+  bgStyles = bgStyles = 'flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-b from-stone-400 to-stone-500 min-h-screen shadow-xl'  
+} else {
+  emoji = "flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-br from-cyan-700 to-blue-700 min-h-screen shadow-xl"
+}}
+
+
   return (
-    <div className={ weatherData.main != 'undefined' && weatherData.weather[0].main === 'Clear' ? 'flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-br from-cyan-700 to-blue-700 min-h-screen shadow-xl' : weatherData.weather[0].main === 'Clouds' ? 'flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-br from-stone-500 to-stone-700 min-h-screen shadow-xl' :  'flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-br from-red-700 to-pink-700 min-h-screen shadow-xl'}>
+    <div className={bgStyles}>
       <Inputs     
       onchangeHandler={e => setCity(e.target.value)} 
       value={city} 

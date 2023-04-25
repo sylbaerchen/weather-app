@@ -27,7 +27,7 @@ let regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
         </div>
     
         <div className='flex flex-row  items-center justify-between text-white py-3'>
-            <div>
+            <div className='flex gap-2 flex-col sm:row items-center'>
             <img src={wemoji} alt='sun' className='w-20'/>
           <p className='text-5xl'>{temperature}°</p>
             </div>
