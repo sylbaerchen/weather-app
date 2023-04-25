@@ -3,8 +3,9 @@ import {
     UilTemperature,
     UilTear,
     UilWind,
-    UilSun,    
     UilLocationPoint,
+    UilSortAmountUp,
+    UilSortAmountDown
 } from '@iconscout/react-unicons/';
 
 function TemperatureAndDetails({name, temperature, feels, humidity, wind, max, min, sky, wemoji, country}) {
@@ -21,7 +22,7 @@ let regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
         <div className='flex items-center justify-start text-xl pb-6 text-cyan-100'>
             <h5 className='sm:ml-10'>{regionNames.of(country)}</h5> 
         </div>
-        <div className='flex items-center justify-center text-7xl py-6 text-cyan-300'>
+        <div className='flex items-center justify-center text-3xl sm:text-7xl py-6 text-cyan-300'>
             <h1>{sky}</h1> 
         </div>
     
@@ -38,31 +39,31 @@ let regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
             </div>
           </div>
         </div>
-        <div className='flex flex-row flex-wrap items-center justify-center space-x-2 text-white text-sm py-3'>
+        <div className='flex flex-row flex-wrap gap-1 sm:gap-0 items-center justify-center space-x-2 text-white text-sm py-3'>
         
         <div className='flex items-center gap-1'>
         <UilWind/>
         <p className='font-light'>
                 Wind: <span className='font-medium ml-1'>{wind}km/h</span>
             </p>
-            <p className='font-light hidden sm:flex'>|</p>
+            <p className='font-light hidden sm:flex px-2'>|</p>
         </div>
         <div className='flex items-center gap-1'>
         <UilTear/>
             <p className='font-light'>
             Humidity: <span className='font-medium ml-1'>{humidity}%</span>
             </p>
-            <p className='hidden sm:flex font-light'>|</p>
+            <p className='hidden sm:flex font-light px-2'>|</p>
         </div>
         <div className='flex items-center gap-1'>
-        <UilSun/>
+        <UilSortAmountUp/>
             <p className='font-light'>
                 Max: <span className='font-medium ml-1'>{max}°</span>
             </p>
-            <p className='font-light hidden sm:flex'>|</p> 
+            <p className='font-light hidden sm:flex px-2'>|</p> 
         </div>
         <div className='flex items-center gap-1'>
-            <UilSun/>
+            <UilSortAmountDown/>
             <p className='font-light'>
                 Min: <span className='font-medium ml-1'>{min}°</span>
             </p>

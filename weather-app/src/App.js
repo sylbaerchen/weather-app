@@ -40,8 +40,7 @@ if(weatherData.weather[0].main === 'Clear') {
 }}
 
   return (
-    <div className='flex flex-col justify-center  md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl'>
-      
+    <div className='flex flex-col justify-center  md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-br from-cyan-700 to-blue-700 min-h-screen shadow-xl '>
       <Inputs     
       onchangeHandler={e => setCity(e.target.value)} 
       value={city} 
@@ -63,12 +62,12 @@ if(weatherData.weather[0].main === 'Clear') {
        wind={weatherData.wind.speed} 
        max={Math.round(weatherData.main.temp_max)} 
        min={Math.round(weatherData.main.temp_min)}/>
-       
-       <Forecast/>
-       
-       <Forecast/>     
      </div>) }
-     {weatherData.cod === '404' && <p>Sorry, city not found :( Please try again!</p> }
+     {weatherData.cod === '404' && 
+     <div className='bg-gradient-to-br from-red-500 to-pink-700'>
+        <p>Sorry, city not found :( Please try again!</p>
+     </div>
+      }
    
     </div>
      )
