@@ -4,6 +4,7 @@ import TimeAndLocation from './components/TimeAndLocation'
 import TemperatureAndDetails from './components/TemperatureAndDetails'
 import Greetings from './components/Greetings'
 import { UilBolt } from '@iconscout/react-unicons'
+import { data } from 'autoprefixer'
 
 function App() {
 const apiKey = process.env.REACT_APP_APIKEY
@@ -40,7 +41,7 @@ if(weatherData.weather[0].main === 'Clear') {
 }}
 
   return (
-    <div className='flex flex-col justify-center  md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-br from-cyan-700 to-blue-700 min-h-screen shadow-xl '>
+    <div className={ weatherData.main != 'undefined' && weatherData.weather[0].main === 'Clear' ? 'flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-br from-cyan-700 to-blue-700 min-h-screen shadow-xl' : weatherData.weather[0].main === 'Clouds' ? 'flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-br from-stone-500 to-stone-700 min-h-screen shadow-xl' :  'flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-br from-red-700 to-pink-700 min-h-screen shadow-xl'}>
       <Inputs     
       onchangeHandler={e => setCity(e.target.value)} 
       value={city} 
