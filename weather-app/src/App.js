@@ -40,13 +40,12 @@ if(weatherData.weather[0].main === 'Clear') {
 }}
 
   return (
-    <div className='mx-auto max-w-screen-md pt-16 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl'>
+    <div className='flex flex-col justify-center  md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl'>
       
       <Inputs     
       onchangeHandler={e => setCity(e.target.value)} 
       value={city} 
       onkeypress={fetchWeather}
-     /*  handleSubmit={setCity(city)} */
       />
       {typeof weatherData.main === 'undefined' ? (
        <Greetings/> 
@@ -55,6 +54,7 @@ if(weatherData.weather[0].main === 'Clear') {
        <TimeAndLocation />
        <TemperatureAndDetails 
        name={weatherData.name} 
+       country={weatherData.sys.country}
        sky={weatherData.weather[0].main}
        wemoji={emoji}
        temperature={Math.round(weatherData.main.temp)} 
