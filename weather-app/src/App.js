@@ -3,7 +3,7 @@ import Inputs from './components/Inputs'
 import TimeAndLocation from './components/TimeAndLocation'
 import TemperatureAndDetails from './components/TemperatureAndDetails'
 import Greetings from './components/Greetings'
-import { UilBolt, UilGlass, UilThunderstorm, UilCloudShowersAlt,  UilSnowflake } from '@iconscout/react-unicons'
+import { UilBolt } from '@iconscout/react-unicons'
 import { data } from 'autoprefixer'
 import Message from './components/Message'
 
@@ -14,14 +14,17 @@ const [weatherData, setWeatherData] = useState([{}])
 const [city, setCity] = useState('')
 
 
-const fetchWeather = (event) => {
-  if (event.key === 'Enter') {
+const fetchWeather = () => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${apiKey}`).then(response => response.json()).then(data=> {
       setWeatherData(data)
       console.log(data)
     })
-  }
 }
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  fetchWeather();
+};
 
 let emoji = null;
 if(typeof weatherData.main != 'undefined') {
@@ -37,6 +40,8 @@ if(weatherData.weather[0].main === 'Clear') {
   emoji = "/shower.png" 
 } else if(weatherData.weather[0].main === 'Snow') {
   emoji = "/snow.png" 
+} else if(weatherData.weather[0].main === 'Fog') {
+  emoji = "/mist.png" 
 } else {
   emoji = "/cloud-sun.png"
 }}
@@ -57,24 +62,22 @@ if(typeof weatherData.main != 'undefined') {
 
 let message = ''
 if(typeof weatherData.main != 'undefined') {
-if(weatherData.weather[0].main === 'Clear') {
-  message = 'Enjoy the sunshine and stay hydrated! 😎'
-} else if(weatherData.weather[0].main === 'Thunderstorm') {
+if(weatherData.weather[0].main === 'Thunderstorm') {
   message = 'Uh-oh it is stormy outside! Be careful ⚡'    
 } else if(weatherData.weather[0].main === 'Rain' || weatherData.weather[0].main === 'Drizzle' ) {
   message = 'Singing in the rain ... take an umbrella with you! 🚿'    
 } else if(weatherData.weather[0].main === 'Snow') {
   message = bgStyles = 'Let it snow, let it snow, let it snow! ☃️'  
-} else {
-  message = ''
 }}
+
+
 
   return (
     <div className={bgStyles}>
       <Inputs     
       onchangeHandler={e => setCity(e.target.value)} 
       value={city} 
-      onkeypress={fetchWeather}
+      handleSubmit={handleSubmit}
       />
       {typeof weatherData.main === 'undefined' ? (
        <Greetings/> 
