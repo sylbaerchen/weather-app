@@ -4,7 +4,6 @@ import TimeAndLocation from './components/TimeAndLocation'
 import TemperatureAndDetails from './components/TemperatureAndDetails'
 import Greetings from './components/Greetings'
 import { UilBolt } from '@iconscout/react-unicons'
-import { data } from 'autoprefixer'
 import Message from './components/Message'
 
 function App() {
@@ -96,20 +95,21 @@ if(weatherData.weather[0].main === 'Thunderstorm') {
        wind={weatherData.wind.speed} 
        max={Math.round(weatherData.main.temp_max)} 
        min={Math.round(weatherData.main.temp_min)}/>
-       
-     </div>) }
+      <footer className='flex text-xs text-stone-100 border-2 py-3 px-3 my-8 max-w-fit rounded-md'>
+        <hr/>
+        <a href="https://www.flaticon.com/free-icons/sun" title="sun icons">Icons created by DinosoftLabs - Flaticon</a>
+      </footer>  
+     </div>) 
+     }
      {weatherData.cod === '404' && 
      <div className='flex bg-red-500 border-2 py-6 px-3 my-8'>
         <UilBolt size={32} className='mr-1 text-white'/>
         <p className='text-white'>Sorry, city not found ... please try again!</p>    
      </div>
       }
-   
     </div>
      )
   }
 
 export default App 
 
-/* credits */
-{/* <a href="https://www.flaticon.com/free-icons/sun" title="sun icons">Sun icons created by DinosoftLabs - Flaticon</a> */}
