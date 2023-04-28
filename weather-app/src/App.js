@@ -102,9 +102,6 @@ if(weatherData.weather[0].main === 'Thunderstorm') {
           <li>
             <a href="https://www.flaticon.com/free-icons/sun" title="sun icons">Icons created by DinosoftLabs - Flaticon</a>
           </li>
-          <li>
-          Foto von <a href="https://unsplash.com/@jannerboy62?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nick Fewings</a> auf <a href="https://unsplash.com/de/fotos/nbwmNehHvis?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-          </li>
         </ul>
       </footer>  
      </div>) 
