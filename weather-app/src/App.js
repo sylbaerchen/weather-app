@@ -24,6 +24,7 @@ const fetchWeather = () => {
 const handleSubmit = (e) => {
   e.preventDefault();
   fetchWeather();
+  setCity('')
 };
 
 let emoji = null;
