@@ -17,7 +17,6 @@ const [city, setCity] = useState('')
 const fetchWeather = () => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${apiKey}`).then(response => response.json()).then(data=> {
       setWeatherData(data)
-      console.log(data)
     })
 }
 
@@ -41,7 +40,7 @@ if(weatherData.weather[0].main === 'Clear') {
   emoji = "/shower.png" 
 } else if(weatherData.weather[0].main === 'Snow') {
   emoji = "/snow.png" 
-} else if(weatherData.weather[0].main === 'Fog') {
+} else if(weatherData.weather[0].main === 'Fog' || weatherData.weather[0].main === 'Mist') {
   emoji = "/mist.png" 
 } else {
   emoji = "/cloud-sun.png"
@@ -55,8 +54,8 @@ if(typeof weatherData.main != 'undefined') {
   bgStyles = 'flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-b from-fuchsia-800 to-fuchsia-950 min-h-screen shadow-xl'    
 } else if(weatherData.weather[0].main === 'Rain'  ) {
   bgStyles = 'flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-b from-teal-600 to-teal-900 min-h-screen shadow-xl'    
-} else if(weatherData.weather[0].main === 'Snow') {
-  bgStyles = 'flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-b from-stone-400 to-stone-500 min-h-screen shadow-xl'  
+} else if(weatherData.weather[0].main === 'Snow' || weatherData.weather[0].main === 'Fog' || weatherData.weather[0].main === 'Mist') {
+  bgStyles = 'flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-b from-stone-400 to-stone-700 min-h-screen shadow-xl'  
 } else {
   bgStyles = "flex flex-col justify-center md:shrink-0 mx-auto max-w-screen-md pt-16 py-5 px-8 sm:px-32 bg-gradient-to-br from-blue-700 to-blue-700 min-h-screen shadow-xl"
 }}
