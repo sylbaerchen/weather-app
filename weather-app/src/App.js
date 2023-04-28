@@ -72,6 +72,7 @@ if(weatherData.weather[0].main === 'Thunderstorm') {
 
 
   return (
+    <div className='bg-gradient-to-b from-cyan-200 via-blue-300 to-blue-600'>
     <div className={bgStyles}>
       <Inputs     
       onchangeHandler={e => setCity(e.target.value)} 
@@ -97,7 +98,14 @@ if(weatherData.weather[0].main === 'Thunderstorm') {
        min={Math.round(weatherData.main.temp_min)}/>
       <footer className='flex text-xs text-stone-100 border-2 py-3 px-3 my-8 max-w-fit rounded-md'>
         <hr/>
-        <a href="https://www.flaticon.com/free-icons/sun" title="sun icons">Icons created by DinosoftLabs - Flaticon</a>
+        <ul>
+          <li>
+            <a href="https://www.flaticon.com/free-icons/sun" title="sun icons">Icons created by DinosoftLabs - Flaticon</a>
+          </li>
+          <li>
+          Foto von <a href="https://unsplash.com/@jannerboy62?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nick Fewings</a> auf <a href="https://unsplash.com/de/fotos/nbwmNehHvis?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+          </li>
+        </ul>
       </footer>  
      </div>) 
      }
@@ -108,6 +116,8 @@ if(weatherData.weather[0].main === 'Thunderstorm') {
      </div>
       }
     </div>
+    </div>
+   
      )
   }
 
