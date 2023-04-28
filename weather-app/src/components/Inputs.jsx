@@ -1,6 +1,8 @@
 import React from 'react'
+import { UilSearch } from '@iconscout/react-unicons'
 
-function Inputs({onchangeHandler, value, onkeypress, handleSubmit}) {
+
+function Inputs({onchangeHandler, value,  handleSubmit}) {
 
   return (
     <div className='flex flex-row justify-center my-6'>
@@ -15,13 +17,12 @@ function Inputs({onchangeHandler, value, onkeypress, handleSubmit}) {
             name='search'
             value={value}
             onChange={onchangeHandler}
-            required
-             
-                        />
+            required />
+          <button type='submit'  id='basic-addon2' >
+            <UilSearch size={32} className='text-white'/>
+          </button>
         </div>
-        <button type='submit' id='basic-addon2' style={{backgroundColor: 'purple'}}>
-          <i>hello</i>
-        </button>
+        
       </form>
       <div className='flex flex-row w-1/4 items-center justify-center'>
            {/*  <button name='metric' className='text-xl text-white font-light'>°C</button>
